@@ -1,0 +1,120 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/bob90/verilog/compu_organ/HW/HW1/HW1_AppAverage/E14086020/src
+vALU_1bit
+Z0 !s110 1646403016
+!i10b 1
+!s100 5B`EiYdCc:Bo>MGDNWMif2
+I5JP64bE_`fYoj^bLHUmLz1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/bob90/verilog/IC_design_Homework/HW1
+w1646323760
+8ALU_1bit.v
+FALU_1bit.v
+L0 2
+Z3 OV;L;10.6d;65
+r1
+!s85 0
+31
+Z4 !s108 1646403016.000000
+!s107 HA.v|FA.v|ALU_1bit.v|C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v|
+Z5 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@a@l@u_1bit
+vALU_8bit
+R0
+!i10b 1
+!s100 J<NQXJgG;4D79UL4>oYk_3
+IOAEP6TUmT4`IEdSVeb[Cl3
+R1
+R2
+w1646403008
+8C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v
+FC:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+Z8 !s107 HA.v|FA.v|ALU_1bit.v|C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v|
+R5
+!i113 1
+R6
+R7
+n@a@l@u_8bit
+vALU_tb
+!s110 1646306232
+!i10b 1
+!s100 Mh2CiLzDh`6=9Abmf72Kl3
+I0=e=ddoGj>TL5f:PWb?X:3
+R1
+R2
+Z9 w1646305519
+8C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v
+FC:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1646306232.000000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v|
+!i113 1
+R6
+R7
+n@a@l@u_tb
+vFA
+R0
+!i10b 1
+!s100 ^f@GkbKUnNPB?B4lSoHV60
+I_C<NG@KZDQZf_3[H0mgf@0
+R1
+R2
+R9
+8FA.v
+FFA.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+R8
+R5
+!i113 1
+R6
+R7
+n@f@a
+vHA
+R0
+!i10b 1
+!s100 >14Y<Edg>1[PfQh?:ZV7J2
+IZCnBJNMAj5d:eE7WZ4XeG2
+R1
+R2
+R9
+8HA.v
+FHA.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R8
+R5
+!i113 1
+R6
+R7
+n@h@a

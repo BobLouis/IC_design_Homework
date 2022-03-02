@@ -13,7 +13,9 @@ output       overflow;
 	Write Your Design Here ~
 */
 wire c_01,c_12,c_23,c_34,c_45,c_56,c_67;
-wire comb_set, comb_overflow, comb;
+wire comb_set, comb;
+assign comb = ($signed(ALU_src1) < $signed(ALU_src2)) ? 1 : 0;
+assign zero = ~(result[0] | result[1] | result[2] | result[3] | result[4] | result[5] | result[6] | result[7]);
 ALU_1bit ALU_0(.result(result[0]), .c_out(c_01), .set(), .overflow(), .a(ALU_src1[0]), .b(ALU_src2[0]), .less(comb), .Ainvert(Ainvert), .Binvert(Binvert), .c_in(Binvert), .op(op));
 ALU_1bit ALU_1(.result(result[1]), .c_out(c_12), .set(), .overflow(), .a(ALU_src1[1]), .b(ALU_src2[1]), .less(1'b0), .Ainvert(Ainvert), .Binvert(Binvert), .c_in(c_01), .op(op));
 ALU_1bit ALU_2(.result(result[2]), .c_out(c_23), .set(), .overflow(), .a(ALU_src1[2]), .b(ALU_src2[2]), .less(1'b0), .Ainvert(Ainvert), .Binvert(Binvert), .c_in(c_12), .op(op));
