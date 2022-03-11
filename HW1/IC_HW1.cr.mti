@@ -1,4 +1,11 @@
-C:/Users/bob90/verilog/IC_design_Homework/HW1/FA.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/FA.v
+C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module ALU_tb
+
+Top level modules:
+	ALU_tb
+
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW1/FA.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/FA.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module HA
 -- Compiling module FA
@@ -6,12 +13,22 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	FA
 
-} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_tb.v
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module ALU_tb
+-- Compiling module HA
+-- Compiling module FA
+-- Compiling module ALU_1bit
+-- Compiling module ALU_8bit
 
 Top level modules:
-	ALU_tb
+	ALU_8bit
+
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW1/HA.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/HA.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module HA
+
+Top level modules:
+	HA
 
 } {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_1bit.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_1bit.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -21,12 +38,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 
 Top level modules:
 	ALU_1bit
-
-} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW1/HA.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW1/HA.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module HA
-
-Top level modules:
-	HA
 
 } {} {}}

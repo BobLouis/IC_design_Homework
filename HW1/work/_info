@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/bob90/verilog/compu_organ/HW/HW1/HW1_AppAverage/E14086020/src
 vALU_1bit
-Z0 !s110 1646403016
+Z0 !s110 1646405027
 !i10b 1
 !s100 5B`EiYdCc:Bo>MGDNWMif2
 I5JP64bE_`fYoj^bLHUmLz1
@@ -23,7 +23,7 @@ Z3 OV;L;10.6d;65
 r1
 !s85 0
 31
-Z4 !s108 1646403016.000000
+Z4 !s108 1646405027.000000
 !s107 HA.v|FA.v|ALU_1bit.v|C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v|
 Z5 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v|
 !i113 1
@@ -33,11 +33,11 @@ n@a@l@u_1bit
 vALU_8bit
 R0
 !i10b 1
-!s100 J<NQXJgG;4D79UL4>oYk_3
-IOAEP6TUmT4`IEdSVeb[Cl3
+!s100 ojC[50aJ8Ig=S92l`Y5HK3
+I4iS1_]@1Ll2D6F=3kRKWB1
 R1
 R2
-w1646403008
+w1646405013
 8C:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v
 FC:/Users/bob90/verilog/IC_design_Homework/HW1/ALU_8bit.v
 L0 2
