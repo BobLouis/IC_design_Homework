@@ -1,0 +1,8 @@
+C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module testfixture
+
+Top level modules:
+	testfixture
+
+} {} {}}

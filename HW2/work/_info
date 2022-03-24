@@ -1,0 +1,55 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/bob90/verilog/IC_context_practice/2016/Exercise
+vtestfixture
+DXx6 sv_std 3 std 0 22 ;edk3;YfCLjCm[Hd=`UGQ2
+!s110 1648125917
+!i10b 1
+!s100 UG<Zd4GV3k;EN:_cBS@Gf1
+IR=LUoVOebAfBUZnAGg`;j3
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+!s105 TLS_tb_sv_unit
+S1
+Z1 dC:/Users/bob90/verilog/IC_design_Homework/HW2
+w1647918137
+8C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS_tb.sv
+FC:/Users/bob90/verilog/IC_design_Homework/HW2/TLS_tb.sv
+L0 7
+Z2 OV;L;10.6d;65
+r1
+!s85 0
+31
+!s108 1648125917.000000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS_tb.sv|
+!i113 1
+o-work work -sv
+Z3 tCvgOpt 0
+vTLS
+!s110 1648140704
+!i10b 1
+!s100 BBgTmo81kkaPT0:iK?RnC1
+I:A088X`oLjK84LCTZdEB01
+R0
+R1
+w1648140686
+8TLS.v
+FTLS.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1648140704.000000
+!s107 TLS.v|
+!s90 -reportprogress|300|TLS.v|
+!i113 1
+R3
+n@t@l@s
