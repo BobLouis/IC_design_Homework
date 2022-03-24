@@ -113,14 +113,17 @@ always @(posedge clk or posedge reset) begin
             end 
             GREEN:begin
                 if(cnt >= g_t -1 && !Stop) cnt <= 0;
+                else if (Jump) cnt <= 0;
                 else if(!Stop)cnt <= cnt + 1;
             end
             YELLOW:begin
                 if(cnt >= y_t-1 && !Stop) cnt <= 0;
+                else if (Jump) cnt <= 0;
                 else if(!Stop)cnt <= cnt + 1;
             end
             RED:begin
                 if(cnt >= r_t-1 && !Stop) cnt <= 0;
+                else if (Jump) cnt <= 0;
                 else if(!Stop)cnt <= cnt + 1;
             end
             default: cnt <= cnt;
