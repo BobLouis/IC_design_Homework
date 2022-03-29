@@ -33,23 +33,24 @@ r1
 o-work work -sv
 Z3 tCvgOpt 0
 vTLS
-!s110 1648141094
+!s110 1648516346
 !i10b 1
 !s100 GPSLd`jg_fYdPX]D`zm_O1
-IWDhWJd:aThWA05KDfk2FH3
+IKC]>O`G7CHX8JMff_A9dB1
 R0
 R1
 w1648141076
-8TLS.v
-FTLS.v
+8C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS.v
+FC:/Users/bob90/verilog/IC_design_Homework/HW2/TLS.v
 L0 1
 R2
 r1
 !s85 0
 31
-!s108 1648141094.000000
-!s107 TLS.v|
-!s90 -reportprogress|300|TLS.v|
+!s108 1648516345.000000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS.v|
 !i113 1
+o-work work
 R3
 n@t@l@s
