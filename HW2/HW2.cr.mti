@@ -5,4 +5,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	testfixture
 
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW2/TLS.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module TLS
+
+Top level modules:
+	TLS
+
 } {} {}}
