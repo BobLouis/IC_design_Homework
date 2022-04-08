@@ -9,29 +9,50 @@ z2
 cModel Technology
 dC:/Users/bob90/verilog/IC_context_practice/2021/spec/2021_univ_cell
 vLZ77_Decoder
-Z0 !s110 1648554844
+Z0 !s110 1649429650
 !i10b 1
 !s100 PIHzU[PeO>9c0Y9zc7SFO1
 ILcNB^F_CQYYUH7S^n74kB2
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/bob90/verilog/IC_design_Homework/HW3
-w1648096157
+Z3 w1649407737
 8C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
 FC:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
 L0 1
-Z3 OV;L;10.6d;65
+Z4 OV;L;10.6d;65
 r1
 !s85 0
 31
-Z4 !s108 1648554844.000000
+Z5 !s108 1649429650.000000
 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v|
 !i113 1
 o-work work
-Z5 tCvgOpt 0
+Z6 tCvgOpt 0
 n@l@z77_@decoder
+vLZ77_Encoder
+!s110 1649434654
+!i10b 1
+!s100 oK`Y8nOA^:7Y6e;LLj^_30
+IVjH@c]boLZZ@NV7R<@[kX0
+R1
+R2
+w1649434632
+8LZ77_Encoder.v
+FLZ77_Encoder.v
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1649434654.000000
+!s107 LZ77_Encoder.v|
+!s90 -reportprogress|300|LZ77_Encoder.v|
+!i113 1
+R6
+n@l@z77_@encoder
 vtestfixture_decoder
-Z6 DXx6 sv_std 3 std 0 22 ;edk3;YfCLjCm[Hd=`UGQ2
+Z7 DXx6 sv_std 3 std 0 22 ;edk3;YfCLjCm[Hd=`UGQ2
 R0
 !i10b 1
 !s100 M2>MmCmCa1]OmQXMTD4k@3
@@ -40,22 +61,22 @@ R1
 !s105 tb_Decoder_sv_unit
 S1
 R2
-w1648454881
+R3
 8C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv
 FC:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv
-Z7 L0 10
-R3
+Z8 L0 10
+R4
 r1
 !s85 0
 31
-R4
+R5
 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv|
 !i113 1
-Z8 o-work work -sv
-R5
-vtestfixture_encoder
+Z9 o-work work -sv
 R6
+vtestfixture_encoder
+R7
 R0
 !i10b 1
 !s100 lzDzCA[mkES4lG]o3k]U30
@@ -64,17 +85,17 @@ R1
 !s105 tb_Encoder_sv_unit
 S1
 R2
-w1648454889
+R3
 8C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv
 FC:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv
-R7
-R3
+R8
+R4
 r1
 !s85 0
 31
-R4
+R5
 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv|
 !i113 1
-R8
-R5
+R9
+R6

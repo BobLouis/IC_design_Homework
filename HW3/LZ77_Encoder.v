@@ -1,12 +1,10 @@
 module LZ77_Encoder(clk,reset,chardata,valid,encode,finish,offset,match_len,char_nxt);
-
-
 input 				clk;
 input 				reset;
 input 		[7:0] 	chardata;
-output  			valid;
-output  			encode;
-output  			finish;
+output  reg			valid;
+output  reg			encode;
+output  reg			finish;
 output 	reg	[3:0] 	offset;
 output 	reg	[2:0] 	match_len;
 output 	reg [7:0] 	char_nxt;
@@ -22,6 +20,7 @@ parameter IDLE = 3'b000;
 parameter READ = 3'b001;
 parameter CAL = 3'b010;
 parameter OUT = 3'b011;
+parameter FINISH = 3'b100;
 
 reg [7:0]str[0:2048]; 
 reg [12:0]cnt;
@@ -29,6 +28,7 @@ reg [7:0] buffer[0:16];
 reg [12:0]str_ptr;
 reg [3:0]match_len_tmp;
 reg [7:0]match;
+reg [3:0]window_idx;
 wire [7:0] window[0:8];
 integer i;
 
@@ -74,7 +74,7 @@ end
 always@(posedge clk or posedge reset)begin
     if(reset)
         cnt <= 0;
-    else if(next_state == READ && cnt == 2048)
+    else if(state == READ && cnt == 2048)
         cnt <= 0;
     else if(next_state == CAL && cnt == 9)
         cnt <= 0;
@@ -100,10 +100,8 @@ always @(posedge clk or posedge reset) begin
 	if(reset)begin
 		str_ptr <= 8;
 	end
-	else if(next_state == CAL)begin
-		if(cnt == 0)begin
-			str_ptr <= 8;
-		end
+	else if(next_state == CAL and )begin
+		
 	end
 end
 
@@ -112,6 +110,7 @@ end
 always @(posedge clk or posedge reset) begin
     if(reset)begin
         window_idx <= 0;
+    end
     else if(next_state == CAL && window_idx < 8)begin
         window_idx <= window_idx + 1;
     end
@@ -121,23 +120,14 @@ always @(posedge clk or posedge reset) begin
 end
 
 
-assign window = buffer[16-window_idx:8-window_idx];
+// assign window = buffer[16-window_idx:8-window_idx];
+//window
+
+
 
 //CAL
-always @(posedge clk or posedge reset) begin
-	if(reset)begin
-        //search buffer
-		for(i = 8; i < 17 ; i = i +1)begin
-			buffer[i] <= 0 ;
-		end
-	end
-    else if(state == READ && cnt ==2046)
-    begin
-        //look ahead buufer
-        for(i = 0; i < 8; i = i + 1)
-            buffer[7-i] <= str[i];
-    end
-	else if(state == CAL)begin
+always @(posedge clk ) begin
+	if(state == CAL)begin
 		if(cnt == 0)begin
             match_len <= 0;
             offset    <= 0;
@@ -147,10 +137,44 @@ always @(posedge clk or posedge reset) begin
 			if(match_len_tmp > match_len)begin
                 match_len <= match_len_tmp;
                 offset <= window_idx;
-                char_nxt <= buffer[8-window_idx]
+                char_nxt <= buffer[8-window_idx];
             end
 		end
 	end
+end
+
+//buffe
+always @(posedge clk) begin
+    if(state == READ && cnt ==2046)
+    begin
+        //look ahead buufer
+        for(i = 8; i < 17; i = i + 1)
+            buffer[i] <= 0;
+        for(i = 0; i < 8; i = i + 1)
+            buffer[7-i] <= str[i];
+    end
+    else if(next_state == OUT)begin
+        //search
+        buffer[16] <= buffer[15-match_len];
+        buffer[15] <= buffer[14-match_len];
+        buffer[14] <= buffer[13-match_len];
+        buffer[13] <= buffer[12-match_len];
+        buffer[12] <= buffer[11-match_len];
+        buffer[11] <= buffer[10-match_len];
+        buffer[10] <= buffer[9 -match_len];
+        buffer[9]  <= buffer[8 -match_len];
+        buffer[8]  <= buffer[7 -match_len];
+        //look
+        buffer[7] <= (6 >= match_len) ? buffer[6-match_len] : str[str_ptr+match_len-7];
+        buffer[6] <= (6 >= match_len) ? buffer[5-match_len] : str[str_ptr+match_len-6];
+        buffer[5] <= (6 >= match_len) ? buffer[4-match_len] : str[str_ptr+match_len-5];
+        buffer[4] <= (6 >= match_len) ? buffer[3-match_len] : str[str_ptr+match_len-4];
+        buffer[3] <= (6 >= match_len) ? buffer[2-match_len] : str[str_ptr+match_len-3];
+        buffer[2] <= (6 >= match_len) ? buffer[1-match_len] : str[str_ptr+match_len-2];
+        buffer[1] <= (6 >= match_len) ? buffer[0-match_len] : str[str_ptr+match_len-1];
+        buffer[0] <= str[str_ptr+match_len];
+
+    end
 end
 
 //compare window with look ahead
@@ -181,12 +205,36 @@ end
 
 
 
+
+//match_len
+always @(posedge clk or posedge reset) begin
+	if(reset)begin
+		match_len <= 0;
+	end
+	else if(next_state == CAL || cnt == 0)begin
+		match_len <= 0;
+	end
+    else begin
+        match_len <= (match_len > match_len_tmp)? match_len:match_len_tmp;
+    end
+end
+
 //OUTPUT
 always@(*)begin
     if(next_state == OUT)
         valid = 1'b1;
     else
         valid = 1'b0;
+end
+
+//encode
+always @(*) begin
+    if(next_state == OUT || next_state == CAL)begin
+        encode = 1;
+    end
+    else begin
+        encode = 1'b0;
+    end
 end
 
 //FINISH 
@@ -198,4 +246,3 @@ always@(*)begin
 end
 
 endmodule
-
