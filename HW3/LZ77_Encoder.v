@@ -53,7 +53,7 @@ always@(*)begin
                 else next_state = READ;   
             end
             CAL:begin
-                if(cnt == 9) next_state = OUT;
+                if(cnt == 10) next_state = OUT;
                 else next_state = CAL;
             end 
             OUT:
@@ -76,7 +76,7 @@ always@(posedge clk or posedge reset)begin
         cnt <= 0;
     else if(state == READ && cnt == 2048)
         cnt <= 0;
-    else if(next_state == CAL && cnt == 9)
+    else if(next_state == CAL && cnt == 10)
         cnt <= 0;
     else if(next_state == OUT)
         cnt <= 0;
@@ -100,34 +100,43 @@ always @(posedge clk or posedge reset) begin
 	if(reset)begin
 		str_ptr <= 8;
 	end
-	else if(next_state == CAL and )begin
-		
+	else if(next_state == OUT)begin
+		str_ptr <= str_ptr + match_len + 1;
 	end
 end
 
 
-//window_idx
-always @(posedge clk or posedge reset) begin
-    if(reset)begin
-        window_idx <= 0;
-    end
-    else if(next_state == CAL && window_idx < 8)begin
-        window_idx <= window_idx + 1;
-    end
-    else if(next_state == CAL && window_idx == 8)begin
-        window_idx <= 0;
-    end
-end
+// //window_idx
+// always @(posedge clk or posedge reset) begin
+//     if(reset)begin
+//         window_idx <= 0;
+//     end
+//     else if(next_state == CAL && window_idx > 1)begin
+//         window_idx <= window_idx + 1;
+//     end
+//     else if(next_state == CAL && window_idx == 8)begin
+//         window_idx <= 0;
+//     end
+// end
 
 
 // assign window = buffer[16-window_idx:8-window_idx];
 //window
+assign window[0] = (cnt > 0 && cnt < 10) ? buffer[9-cnt]  : window[0];
+assign window[1] = (cnt > 0 && cnt < 10) ? buffer[10-cnt] : window[1];
+assign window[2] = (cnt > 0 && cnt < 10) ? buffer[11-cnt] : window[2];
+assign window[3] = (cnt > 0 && cnt < 10) ? buffer[12-cnt] : window[3];
+assign window[4] = (cnt > 0 && cnt < 10) ? buffer[13-cnt] : window[4];
+assign window[5] = (cnt > 0 && cnt < 10) ? buffer[14-cnt] : window[5];
+assign window[6] = (cnt > 0 && cnt < 10) ? buffer[15-cnt] : window[6];
+assign window[7] = (cnt > 0 && cnt < 10) ? buffer[16-cnt] : window[7];
+assign window[8] = (cnt > 0 && cnt < 10) ? buffer[17-cnt] : window[8];
 
 
 
 //CAL
 always @(posedge clk ) begin
-	if(state == CAL)begin
+	if(next_state == CAL)begin
 		if(cnt == 0)begin
             match_len <= 0;
             offset    <= 0;
@@ -136,20 +145,37 @@ always @(posedge clk ) begin
 		else begin
 			if(match_len_tmp > match_len)begin
                 match_len <= match_len_tmp;
-                offset <= window_idx;
-                char_nxt <= buffer[8-window_idx];
+                offset <= 9-cnt;
+                char_nxt <= (match_len_tmp != 8) ? buffer[7-match_len_tmp] : str[str_ptr];
             end
 		end
 	end
 end
 
-//buffe
+// always @(posedge clk) begin
+// 	if(next_state == OUT || next_state == READ)begin
+//             match_len <= 0;
+//             offset    <= 0;
+//             char_nxt  <= buffer[7];
+//     end
+//     else if(next_state == CAL && cnt < 9)begin
+//         if(match_len_tmp > match_len)begin
+//             match_len <= match_len_tmp;
+//             offset <= 8-cnt;
+//             char_nxt <= (match_len_tmp != 8) ? buffer[7-match_len_tmp] : str[str_ptr];
+//         end
+//     end
+// end
+
+
+
+//buffer
 always @(posedge clk) begin
     if(state == READ && cnt ==2046)
     begin
         //look ahead buufer
         for(i = 8; i < 17; i = i + 1)
-            buffer[i] <= 0;
+            buffer[i] <= 8'b11111111;
         for(i = 0; i < 8; i = i + 1)
             buffer[7-i] <= str[i];
     end
@@ -165,15 +191,14 @@ always @(posedge clk) begin
         buffer[9]  <= buffer[8 -match_len];
         buffer[8]  <= buffer[7 -match_len];
         //look
-        buffer[7] <= (6 >= match_len) ? buffer[6-match_len] : str[str_ptr+match_len-7];
-        buffer[6] <= (6 >= match_len) ? buffer[5-match_len] : str[str_ptr+match_len-6];
-        buffer[5] <= (6 >= match_len) ? buffer[4-match_len] : str[str_ptr+match_len-5];
-        buffer[4] <= (6 >= match_len) ? buffer[3-match_len] : str[str_ptr+match_len-4];
-        buffer[3] <= (6 >= match_len) ? buffer[2-match_len] : str[str_ptr+match_len-3];
-        buffer[2] <= (6 >= match_len) ? buffer[1-match_len] : str[str_ptr+match_len-2];
-        buffer[1] <= (6 >= match_len) ? buffer[0-match_len] : str[str_ptr+match_len-1];
+        buffer[7] <= (6  >= match_len) ? buffer[6-match_len] : str[str_ptr+match_len-7];
+        buffer[6] <= (5  >= match_len) ? buffer[5-match_len] : str[str_ptr+match_len-6];
+        buffer[5] <= (4  >= match_len) ? buffer[4-match_len] : str[str_ptr+match_len-5];
+        buffer[4] <= (3  >= match_len) ? buffer[3-match_len] : str[str_ptr+match_len-4];
+        buffer[3] <= (2  >= match_len) ? buffer[2-match_len] : str[str_ptr+match_len-3];
+        buffer[2] <= (1  >= match_len) ? buffer[1-match_len] : str[str_ptr+match_len-2];
+        buffer[1] <= (0  >= match_len) ? buffer[0-match_len] : str[str_ptr+match_len-1];
         buffer[0] <= str[str_ptr+match_len];
-
     end
 end
 
@@ -191,33 +216,22 @@ end
 
 always @(*) begin
     casex(match)
-        8'b11111111: match_len_tmp = 8;
-        8'b11111110: match_len_tmp = 7;
-        8'b1111110x: match_len_tmp = 6;
-        8'b111110xx: match_len_tmp = 5;
-        8'b11110xxx: match_len_tmp = 4;
-        8'b1110xxxx: match_len_tmp = 3;
-        8'b110xxxxx: match_len_tmp = 2;
-        8'b10xxxxxx: match_len_tmp = 1;
-        8'b0xxxxxxx: match_len_tmp = 0;
+        8'b11111111: match_len_tmp = 7;
+        8'b01111111: match_len_tmp = 7;
+        8'bx0111111: match_len_tmp = 6;
+        8'bxx011111: match_len_tmp = 5;
+        8'bxxx01111: match_len_tmp = 4;
+        8'bxxxx0111: match_len_tmp = 3;
+        8'bxxxxx011: match_len_tmp = 2;
+        8'bxxxxxx01: match_len_tmp = 1;
+        8'bxxxxxxx0: match_len_tmp = 0;
     endcase
 end
 
 
 
 
-//match_len
-always @(posedge clk or posedge reset) begin
-	if(reset)begin
-		match_len <= 0;
-	end
-	else if(next_state == CAL || cnt == 0)begin
-		match_len <= 0;
-	end
-    else begin
-        match_len <= (match_len > match_len_tmp)? match_len:match_len_tmp;
-    end
-end
+
 
 //OUTPUT
 always@(*)begin

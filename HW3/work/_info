@@ -31,23 +31,23 @@ o-work work
 Z6 tCvgOpt 0
 n@l@z77_@decoder
 vLZ77_Encoder
-!s110 1649434654
+!s110 1649510423
 !i10b 1
-!s100 oK`Y8nOA^:7Y6e;LLj^_30
-IVjH@c]boLZZ@NV7R<@[kX0
+!s100 D:5PiLGCQI8hoClm`ng]T0
+IKDFjA@KhiMH1GDoM8ND6L3
 R1
 R2
-w1649434632
-8LZ77_Encoder.v
-FLZ77_Encoder.v
+w1649510418
+8LZ77_encoder.v
+FLZ77_encoder.v
 L0 1
 R4
 r1
 !s85 0
 31
-!s108 1649434654.000000
-!s107 LZ77_Encoder.v|
-!s90 -reportprogress|300|LZ77_Encoder.v|
+!s108 1649510423.000000
+!s107 LZ77_encoder.v|
+!s90 -reportprogress|300|LZ77_encoder.v|
 !i113 1
 R6
 n@l@z77_@encoder
