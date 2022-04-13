@@ -1,22 +1,8 @@
-C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv {1 {vlog -work work -sv -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv
+C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module testfixture_decoder
+-- Compiling module LZ77_Decoder
 
 Top level modules:
-	testfixture_decoder
-
-} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Encoder.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Encoder.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module LZ77_Encoder
-
-Top level modules:
-	LZ77_Encoder
-
-} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv {1 {vlog -work work -sv -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module testfixture_encoder
-
-Top level modules:
-	testfixture_encoder
+	LZ77_Decoder
 
 } {} {}}

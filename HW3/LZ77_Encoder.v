@@ -57,7 +57,7 @@ always@(*)begin
                 else next_state = CAL;
             end 
             OUT:
-                if(str_ptr == 2047) next_state = FINISH;
+                if(char_nxt == 8'h24) next_state = FINISH;
                 else next_state = CAL;
             FINISH:begin
                 next_state = FINISH;

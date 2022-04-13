@@ -9,34 +9,35 @@ z2
 cModel Technology
 dC:/Users/bob90/verilog/IC_context_practice/2021/spec/2021_univ_cell
 vLZ77_Decoder
-!s110 1649862731
+!s110 1649867118
 !i10b 1
 !s100 n;=0^fQSgLSBPIO<@JGfk2
-I[L@XF7ECnliCUa8SDWRIB3
+IR9EEQ99aj7Yz?cQldRRZJ1
 Z0 VDg1SIo80bB@j0V0VzS_@n1
 Z1 dC:/Users/bob90/verilog/IC_design_Homework/HW3
 w1649862723
-8LZ77_decoder.v
-FLZ77_decoder.v
+8C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
+FC:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
 L0 1
 Z2 OV;L;10.6d;65
 r1
 !s85 0
 31
-!s108 1649862731.000000
-!s107 LZ77_decoder.v|
-!s90 -reportprogress|300|LZ77_decoder.v|
+!s108 1649867118.000000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v|
 !i113 1
+o-work work
 Z3 tCvgOpt 0
 n@l@z77_@decoder
 vLZ77_Encoder
-!s110 1649855705
+!s110 1649868233
 !i10b 1
-!s100 D:5PiLGCQI8hoClm`ng]T0
-IKDFjA@KhiMH1GDoM8ND6L3
+!s100 V0NQmUZnb7DD_5KKhVVKB0
+IGUHaZLA^?cjU04DI4b[A51
 R0
 R1
-w1649510418
+w1649868216
 8LZ77_encoder.v
 FLZ77_encoder.v
 L0 1
@@ -44,7 +45,7 @@ R2
 r1
 !s85 0
 31
-!s108 1649855705.000000
+!s108 1649868233.000000
 !s107 LZ77_encoder.v|
 !s90 -reportprogress|300|LZ77_encoder.v|
 !i113 1
@@ -52,49 +53,47 @@ R3
 n@l@z77_@encoder
 vtestfixture_decoder
 Z4 DXx6 sv_std 3 std 0 22 ;edk3;YfCLjCm[Hd=`UGQ2
-Z5 !s110 1649429650
+!s110 1649867164
 !i10b 1
-!s100 M2>MmCmCa1]OmQXMTD4k@3
-IFij?5ZFOf7]c?>LW_PK5[3
+!s100 B?gO>UJhAOS^Hgf[Ri?N:1
+IOgNHPi3iWJa22NVj1o3T[2
 R0
-!s105 tb_Decoder_sv_unit
+!s105 tb_decoder_sv_unit
 S1
 R1
-Z6 w1649407737
-8C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv
-FC:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv
-Z7 L0 10
+w1649867155
+8tb_decoder.sv
+Ftb_decoder.sv
+Z5 L0 10
 R2
 r1
 !s85 0
 31
-Z8 !s108 1649429650.000000
-!s107 C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv|
+!s108 1649867164.000000
+!s107 tb_decoder.sv|
+!s90 -reportprogress|300|tb_decoder.sv|
 !i113 1
-Z9 o-work work -sv
 R3
 vtestfixture_encoder
 R4
-R5
+!s110 1649867836
 !i10b 1
 !s100 lzDzCA[mkES4lG]o3k]U30
-I5zUWo108=ZJFjM`R;]gEU3
+I?cSFaf;7OXc][YZPKTYng1
 R0
-!s105 tb_Encoder_sv_unit
+!s105 tb_encoder_sv_unit
 S1
 R1
-R6
-8C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv
-FC:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv
-R7
+w1649867826
+8tb_encoder.sv
+Ftb_encoder.sv
+R5
 R2
 r1
 !s85 0
 31
-R8
-!s107 C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Encoder.sv|
+!s108 1649867836.000000
+!s107 tb_encoder.sv|
+!s90 -reportprogress|300|tb_encoder.sv|
 !i113 1
-R9
 R3
