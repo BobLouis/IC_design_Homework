@@ -1,0 +1,23 @@
+C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA_tb.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module RCA_tb
+
+Top level modules:
+	RCA_tb
+
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/FA.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/FA.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module HA
+-- Compiling module FA
+
+Top level modules:
+	FA
+
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/HA.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/HA.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module HA
+
+Top level modules:
+	HA
+
+} {} {}}

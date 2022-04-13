@@ -1,0 +1,55 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/bob90/verilog/IC_design_Homework/MID1/Q1
+vBOE
+!s110 1649735783
+!i10b 1
+!s100 L8gI1`]Ff6R]:32R@HYZ<1
+IjDDXO520?V]c8GT=UeGML3
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/Users/bob90/verilog/IC_design_Homework/MID1/Q2
+w1649735780
+8BOE.v
+FBOE.v
+L0 1
+Z2 OV;L;10.6d;65
+r1
+!s85 0
+31
+!s108 1649735783.000000
+!s107 BOE.v|
+!s90 -reportprogress|300|BOE.v|
+!i113 1
+Z3 tCvgOpt 0
+n@b@o@e
+vtestfixture
+DXx6 sv_std 3 std 0 22 ;edk3;YfCLjCm[Hd=`UGQ2
+!s110 1649733555
+!i10b 1
+!s100 k4^Ra5l`P7NVEQjfg?[US3
+IQNY]965E3Df3OPDaiZNY52
+R0
+!s105 BOE_tb_sv_unit
+S1
+R1
+w1649622058
+8C:/Users/bob90/verilog/IC_design_Homework/MID1/Q2/BOE_tb.sv
+FC:/Users/bob90/verilog/IC_design_Homework/MID1/Q2/BOE_tb.sv
+L0 7
+R2
+r1
+!s85 0
+31
+!s108 1649733555.000000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/MID1/Q2/BOE_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/MID1/Q2/BOE_tb.sv|
+!i113 1
+o-work work -sv
+R3

@@ -1,0 +1,98 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/bob90/verilog/IC_design_Homework/MID1
+vFA
+Z0 !s110 1649730467
+!i10b 1
+!s100 gKi99ZYld?b:4lb5NN:CT1
+I>R2mRjTV2nW7X7FE0IdX<2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/bob90/verilog/IC_design_Homework/MID1/Q1
+w1649730111
+8FA.v
+FFA.v
+L0 2
+Z3 OV;L;10.6d;65
+r1
+!s85 0
+31
+Z4 !s108 1649730466.000000
+!s107 HA.v|FA.v|C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA.v|
+Z5 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+n@f@a
+vHA
+R0
+!i10b 1
+!s100 3N]z9g>G<7fOBZ07QWYPY1
+Ikb:2m:B1Fh<0[Z;8PmP@:0
+R1
+R2
+w1649730109
+8HA.v
+FHA.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+Z8 !s107 HA.v|FA.v|C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA.v|
+R5
+!i113 1
+R6
+R7
+n@h@a
+vRCA
+R0
+!i10b 1
+!s100 Ok8><]lnZ`A@;4?TQEXCO3
+I=6d[2FPJ1DA;]5lzZ2ECV3
+R1
+R2
+w1649730452
+8C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA.v
+FC:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+R8
+R5
+!i113 1
+R6
+R7
+n@r@c@a
+vRCA_tb
+!s110 1649729655
+!i10b 1
+!s100 UHe1lm>dSGLgS;NSLZmll3
+Igh9OAloLK7bZAaW:Aj9e91
+R1
+R2
+w1649617884
+8C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA_tb.v
+FC:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA_tb.v
+L0 4
+R3
+r1
+!s85 0
+31
+!s108 1649729655.000000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/bob90/verilog/IC_design_Homework/MID1/Q1/RCA_tb.v|
+!i113 1
+R6
+R7
+n@r@c@a_tb
