@@ -25,8 +25,15 @@ always @(posedge clk or posedge reset) begin
 		end
 	end
 	else begin
-
-	end
+		buff[0] <= chardata;
+		buff[1] <= buff[code_len];
+		buff[2] <=;
+		buff[3] <=;
+		buff[4] <=;
+		buff[5] <=;
+		buff[6] <=;
+		buff[7] <=;
+		buff[8] <=;
 end
 //output
 always @(posedge clk or posedge reset) begin
