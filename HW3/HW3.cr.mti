@@ -1,8 +1,0 @@
-C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v {1 {vlog -work work -stats=none C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module LZ77_Decoder
-
-Top level modules:
-	LZ77_Decoder
-
-} {} {}}

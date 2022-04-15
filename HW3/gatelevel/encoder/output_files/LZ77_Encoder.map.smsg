@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at LZ77_Encoder.v(45): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at LZ77_Encoder.v(7): object "finish" differs only in case from object "FINISH" in the same scope
