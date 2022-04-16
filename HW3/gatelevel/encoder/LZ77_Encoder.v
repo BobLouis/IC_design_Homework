@@ -20,19 +20,27 @@ parameter IDLE = 3'b000;
 parameter READ = 3'b001;
 parameter CAL = 3'b010;
 parameter OUT = 3'b011;
-parameter FINISH = 3'b100;
+parameter SHIFT = 3'b100;
+parameter OFFSET = 3'b101;
+parameter FINISH = 3'b110;
 
-reg [7:0]str[0:2048]; 
-reg [12:0]cnt;
-reg [7:0] buffer[0:16];
-reg [12:0]str_ptr;
-reg [3:0]match_len_tmp;
-reg [7:0]match;
-reg [3:0]window_idx;
-wire [7:0] window[0:8];
+reg [7:0]str[0:2057]; 
+
+reg [11:0]cnt;
+reg [4:0]look_ptr;
+reg [3:0]search_ptr;
+
+reg [3:0]pos_cnt;
+reg [3:0]cmp_cnt;
+reg [3:0] shift_cnt;
 integer i;
 
 
+
+wire [7:0]search_buf;
+assign search_buf = str[search_ptr];
+wire [7:0]look_buf;
+assign look_buf = str[look_ptr];
 //STATE MACHINE
 always@(posedge clk or posedge reset)begin
     if(reset)
@@ -49,16 +57,24 @@ always@(*)begin
             IDLE:
                 next_state = READ;
             READ:begin
-                if(cnt == 13'd2048) next_state = CAL;
+                if(cnt == 13'd2058) next_state = CAL;
                 else next_state = READ;   
             end
             CAL:begin
-                if(cnt == 10) next_state = OUT;
+                if(pos_cnt == 9 || match_len == 7) next_state = OUT;
                 else next_state = CAL;
             end 
-            OUT:
+            OUT:begin
                 if(char_nxt == 8'h24) next_state = FINISH;
-                else next_state = CAL;
+                else next_state = SHIFT;
+            end
+                
+            SHIFT:begin
+                if(shift_cnt == match_len) next_state = OFFSET;
+                else next_state = SHIFT;
+            end
+            OFFSET:
+                next_state = CAL;
             FINISH:begin
                 next_state = FINISH;
             end
@@ -68,138 +84,129 @@ always@(*)begin
 end
 
 
-
-
-//cnt
+//read_cnt
 always@(posedge clk or posedge reset)begin
     if(reset)
-        cnt <= 0;
-    else if(state == READ && cnt == 2048)
-        cnt <= 0;
-    else if(next_state == CAL && cnt == 10)
-        cnt <= 0;
-    else if(next_state == OUT)
-        cnt <= 0;
-    else 
+        cnt <= 9;
+    else if(next_state == READ)
         cnt <= cnt + 1;
 end
+
+//shift_cnt
+always@(posedge clk or posedge reset)begin
+    if(reset)
+        shift_cnt <= 0;
+    else if(state == SHIFT)
+        shift_cnt <= shift_cnt + 1;
+    else if(state == OUT)
+        shift_cnt <= 0;
+end
+
+//pos_cnt
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        pos_cnt <= 0;
+    else if(next_state == CAL)begin
+        if(look_buf != search_buf)  
+            pos_cnt <= pos_cnt + 1;
+    end
+    else if(next_state == OFFSET)   
+        pos_cnt <= 0;
+end
+
+//look_ptr
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        look_ptr <= 9;
+    else begin
+        if(next_state == CAL)begin
+            if(search_buf == look_buf)  
+                look_ptr <= look_ptr + 1;
+            else    
+                look_ptr <= 9;
+        end
+        else if(next_state == OUT)
+            look_ptr <= 9;
+    end
+end
+
+//search_ptr
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        search_ptr <= 0;
+    else begin
+        if(next_state == CAL)begin
+            if(cmp_cnt && search_buf != look_buf) 
+                search_ptr <= pos_cnt + 1;
+            else
+                search_ptr <= search_ptr + 1;
+        end
+        else if(next_state == OUT)
+            search_ptr <= 0;
+    end
+end
+
+//cmp_cnt
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        cmp_cnt <= 0;
+    else begin
+        if(next_state == CAL && look_buf == search_buf)begin
+            cmp_cnt <= cmp_cnt +1;
+        end
+        else begin
+            cmp_cnt <= 0;
+        end
+    end
+end
+
+
 
 //DATA INPUTs
 always@(posedge clk or posedge reset)begin
     if(reset)begin
-        str [2048]<= 8'h24;
+        str[0] <= 8'hFF;
+        str[1] <= 8'hFF;
+        str[2] <= 8'hFF;
+        str[3] <= 8'hFF;
+        str[4] <= 8'hFF;
+        str[5] <= 8'hFF;
+        str[6] <= 8'hFF;
+        str[7] <= 8'hFF;
+        str[8] <= 8'hFF;
     end
     else if(next_state == READ)begin
         str[cnt] <= chardata;
     end
+    else if(next_state == SHIFT)begin
+        for(i = 0; i <2057; i= i+1)begin
+            str[i] <= str[i + 1];
+        end
+    end
 end
-
-
-//str_ptr
-always @(posedge clk or posedge reset) begin
-	if(reset)begin
-		str_ptr <= 8;
-	end
-	else if(next_state == OUT)begin
-		str_ptr <= str_ptr + match_len + 1;
-	end
-end
-
-
-//window
-assign window[0] = (cnt > 0 && cnt < 10) ? buffer[9-cnt]  : window[0];
-assign window[1] = (cnt > 0 && cnt < 10) ? buffer[10-cnt] : window[1];
-assign window[2] = (cnt > 0 && cnt < 10) ? buffer[11-cnt] : window[2];
-assign window[3] = (cnt > 0 && cnt < 10) ? buffer[12-cnt] : window[3];
-assign window[4] = (cnt > 0 && cnt < 10) ? buffer[13-cnt] : window[4];
-assign window[5] = (cnt > 0 && cnt < 10) ? buffer[14-cnt] : window[5];
-assign window[6] = (cnt > 0 && cnt < 10) ? buffer[15-cnt] : window[6];
-assign window[7] = (cnt > 0 && cnt < 10) ? buffer[16-cnt] : window[7];
-assign window[8] = (cnt > 0 && cnt < 10) ? buffer[17-cnt] : window[8];
 
 
 
 //CAL
-always @(posedge clk ) begin
-	if(next_state == CAL)begin
-		if(cnt == 0)begin
-            match_len <= 0;
-            offset    <= 0;
-            char_nxt  <= buffer[7];
-		end
-		else begin
-			if(match_len_tmp > match_len)begin
-                match_len <= match_len_tmp;
-                offset <= 9-cnt;
-                char_nxt <= (match_len_tmp != 8) ? buffer[7-match_len_tmp] : str[str_ptr];
-            end
-		end
-	end
-end
-
-
-//buffer
 always @(posedge clk) begin
-    if(state == READ && cnt ==2046)
-    begin
-        //look ahead buufer
-        for(i = 8; i < 17; i = i + 1)
-            buffer[i] <= 8'b11111111;
-        for(i = 0; i < 8; i = i + 1)
-            buffer[7-i] <= str[i];
+    if(next_state == READ)begin
+        match_len <=0;
+        offset    <= 0;
+        char_nxt  <= str[9];
     end
-    else if(next_state == OUT)begin
-        //search
-        buffer[16] <= buffer[15-match_len];
-        buffer[15] <= buffer[14-match_len];
-        buffer[14] <= buffer[13-match_len];
-        buffer[13] <= buffer[12-match_len];
-        buffer[12] <= buffer[11-match_len];
-        buffer[11] <= buffer[10-match_len];
-        buffer[10] <= buffer[9 -match_len];
-        buffer[9]  <= buffer[8 -match_len];
-        buffer[8]  <= buffer[7 -match_len];
-        //look
-        buffer[7] <= (6  >= match_len) ? buffer[6-match_len] : str[str_ptr+match_len-7];
-        buffer[6] <= (5  >= match_len) ? buffer[5-match_len] : str[str_ptr+match_len-6];
-        buffer[5] <= (4  >= match_len) ? buffer[4-match_len] : str[str_ptr+match_len-5];
-        buffer[4] <= (3  >= match_len) ? buffer[3-match_len] : str[str_ptr+match_len-4];
-        buffer[3] <= (2  >= match_len) ? buffer[2-match_len] : str[str_ptr+match_len-3];
-        buffer[2] <= (1  >= match_len) ? buffer[1-match_len] : str[str_ptr+match_len-2];
-        buffer[1] <= (0  >= match_len) ? buffer[0-match_len] : str[str_ptr+match_len-1];
-        buffer[0] <= str[str_ptr+match_len];
+	else if(next_state == CAL)begin
+        if(cmp_cnt > match_len)begin
+            match_len <= cmp_cnt;
+            offset <= 8-pos_cnt;
+            char_nxt <= look_buf;
+        end
+	end
+    else if(next_state == OFFSET)begin
+        match_len <= 0;
+        offset <= 0;
+        char_nxt <= str[9];
     end
 end
-
-//compare window with look ahead
-always @(*) begin
-    match[0] = window[8] == buffer[7]; 
-    match[1] = window[7] == buffer[6]; 
-    match[2] = window[6] == buffer[5]; 
-    match[3] = window[5] == buffer[4]; 
-    match[4] = window[4] == buffer[3]; 
-    match[5] = window[3] == buffer[2]; 
-    match[6] = window[2] == buffer[1]; 
-    match[7] = window[1] == buffer[0]; 
-end
-
-/*
-always @(*) begin
-    casex(match)
-        8'b11111111: match_len_tmp = 7;
-        8'b01111111: match_len_tmp = 7;
-        8'bx0111111: match_len_tmp = 6;
-        8'bxx011111: match_len_tmp = 5;
-        8'bxxx01111: match_len_tmp = 4;
-        8'bxxxx0111: match_len_tmp = 3;
-        8'bxxxxx011: match_len_tmp = 2;
-        8'bxxxxxx01: match_len_tmp = 1;
-        8'bxxxxxxx0: match_len_tmp = 0;
-    endcase
-end
-*/
-
-
 
 
 
@@ -213,11 +220,11 @@ end
 
 //encode
 always @(*) begin
-    if(next_state == OUT || next_state == CAL)begin
-        encode = 1;
+    if(next_state == READ || next_state == FINISH)begin
+        encode = 0;
     end
     else begin
-        encode = 1'b0;
+        encode = 1;
     end
 end
 

@@ -49,4 +49,3 @@ assign char_nxt = buff[0];
 assign finish = (char_nxt == 8'h24)?1:0;
 assign encode =  0;
 endmodule
-

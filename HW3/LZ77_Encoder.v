@@ -20,14 +20,27 @@ parameter IDLE = 3'b000;
 parameter READ = 3'b001;
 parameter CAL = 3'b010;
 parameter OUT = 3'b011;
-parameter FINISH = 3'b100;
+parameter SHIFT = 3'b100;
+parameter OFFSET = 3'b101;
+parameter FINISH = 3'b110;
 
-reg [7:0]str[0:2048]; 
-reg [12:0]cnt;
-reg [12:0]look_ptr;
-reg [3:0]match_len_tmp;
+reg [7:0]str[0:2057]; 
+
+reg [11:0]cnt;
+reg [4:0]look_ptr;
+reg [3:0]search_ptr;
+
+reg [3:0]pos_cnt;
+reg [3:0]cmp_cnt;
+reg [3:0] shift_cnt;
+integer i;
 
 
+
+wire [7:0]search_buf;
+assign search_buf = str[search_ptr];
+wire [7:0]look_buf;
+assign look_buf = str[look_ptr];
 //STATE MACHINE
 always@(posedge clk or posedge reset)begin
     if(reset)
@@ -44,16 +57,24 @@ always@(*)begin
             IDLE:
                 next_state = READ;
             READ:begin
-                if(cnt == 13'd2048) next_state = CAL;
+                if(cnt == 13'd2058) next_state = CAL;
                 else next_state = READ;   
             end
             CAL:begin
-                if(cnt == 10) next_state = OUT;
+                if(pos_cnt == 9 || match_len == 7) next_state = OUT;
                 else next_state = CAL;
             end 
-            OUT:
+            OUT:begin
                 if(char_nxt == 8'h24) next_state = FINISH;
-                else next_state = CAL;
+                else next_state = SHIFT;
+            end
+                
+            SHIFT:begin
+                if(shift_cnt == match_len) next_state = OFFSET;
+                else next_state = SHIFT;
+            end
+            OFFSET:
+                next_state = CAL;
             FINISH:begin
                 next_state = FINISH;
             end
@@ -63,58 +84,128 @@ always@(*)begin
 end
 
 
-//cnt
+//read_cnt
 always@(posedge clk or posedge reset)begin
     if(reset)
-        cnt <= 0;
-    else if(state == READ && cnt == 2048)
-        cnt <= 0;
-    else if(next_state == CAL && cnt == 10)
-        cnt <= 0;
-    else if(next_state == OUT)
-        cnt <= 0;
-    else 
+        cnt <= 9;
+    else if(next_state == READ)
         cnt <= cnt + 1;
 end
+
+//shift_cnt
+always@(posedge clk or posedge reset)begin
+    if(reset)
+        shift_cnt <= 0;
+    else if(state == SHIFT)
+        shift_cnt <= shift_cnt + 1;
+    else if(state == OUT)
+        shift_cnt <= 0;
+end
+
+//pos_cnt
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        pos_cnt <= 0;
+    else if(next_state == CAL)begin
+        if(look_buf != search_buf)  
+            pos_cnt <= pos_cnt + 1;
+    end
+    else if(next_state == OFFSET)   
+        pos_cnt <= 0;
+end
+
+//look_ptr
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        look_ptr <= 9;
+    else begin
+        if(next_state == CAL)begin
+            if(search_buf == look_buf)  
+                look_ptr <= look_ptr + 1;
+            else    
+                look_ptr <= 9;
+        end
+        else if(next_state == OUT)
+            look_ptr <= 9;
+    end
+end
+
+//search_ptr
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        search_ptr <= 0;
+    else begin
+        if(next_state == CAL)begin
+            if(cmp_cnt && search_buf != look_buf) 
+                search_ptr <= pos_cnt + 1;
+            else
+                search_ptr <= search_ptr + 1;
+        end
+        else if(next_state == OUT)
+            search_ptr <= 0;
+    end
+end
+
+//cmp_cnt
+always @(posedge clk or posedge reset) begin
+    if(reset)
+        cmp_cnt <= 0;
+    else begin
+        if(next_state == CAL && look_buf == search_buf)begin
+            cmp_cnt <= cmp_cnt +1;
+        end
+        else begin
+            cmp_cnt <= 0;
+        end
+    end
+end
+
+
 
 //DATA INPUTs
 always@(posedge clk or posedge reset)begin
     if(reset)begin
-        str [2048]<= 8'h24;
+        str[0] <= 8'hFF;
+        str[1] <= 8'hFF;
+        str[2] <= 8'hFF;
+        str[3] <= 8'hFF;
+        str[4] <= 8'hFF;
+        str[5] <= 8'hFF;
+        str[6] <= 8'hFF;
+        str[7] <= 8'hFF;
+        str[8] <= 8'hFF;
     end
     else if(next_state == READ)begin
         str[cnt] <= chardata;
     end
+    else if(next_state == SHIFT)begin
+        for(i = 0; i <2057; i= i+1)begin
+            str[i] <= str[i + 1];
+        end
+    end
 end
 
-
-//look_ptr
-always @(posedge clk or posedge reset) begin
-	if(reset)begin
-		look_ptr <= 8;
-	end
-	else if(next_state == OUT)begin
-		look_ptr <= look_ptr + match_len + 1;
-	end
-end
 
 
 //CAL
-always @(posedge clk ) begin
-	if(next_state == CAL)begin
-		if(cnt == 0)begin
-            match_len <= 0;
-            offset    <= 0;
-            char_nxt  <= buffer[7];
-		end
-		else begin
-			if(match_len_tmp > match_len)begin
-                match_len <= match_len_tmp;
-                offset <= 9-cnt;
-                char_nxt <=;
-            end
-		end
+always @(posedge clk) begin
+    if(next_state == READ)begin
+        match_len <=0;
+        offset    <= 0;
+        char_nxt  <= str[9];
+    end
+	else if(next_state == CAL)begin
+        if(cmp_cnt > match_len)begin
+            match_len <= cmp_cnt;
+            offset <= 8-pos_cnt;
+            char_nxt <= look_buf;
+        end
 	end
+    else if(next_state == OFFSET)begin
+        match_len <= 0;
+        offset <= 0;
+        char_nxt <= str[9];
+    end
 end
 
 
@@ -129,11 +220,11 @@ end
 
 //encode
 always @(*) begin
-    if(next_state == OUT || next_state == CAL)begin
-        encode = 1;
+    if(next_state == READ || next_state == FINISH)begin
+        encode = 0;
     end
     else begin
-        encode = 1'b0;
+        encode = 1;
     end
 end
 

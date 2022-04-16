@@ -6,7 +6,9 @@ entity LZ77_Encoder is
         READ            : vl_logic_vector(0 to 2) := (Hi0, Hi0, Hi1);
         CAL             : vl_logic_vector(0 to 2) := (Hi0, Hi1, Hi0);
         \OUT\           : vl_logic_vector(0 to 2) := (Hi0, Hi1, Hi1);
-        \FINISH\        : vl_logic_vector(0 to 2) := (Hi1, Hi0, Hi0)
+        SHIFT           : vl_logic_vector(0 to 2) := (Hi1, Hi0, Hi0);
+        \OFFSET\        : vl_logic_vector(0 to 2) := (Hi1, Hi0, Hi1);
+        \FINISH\        : vl_logic_vector(0 to 2) := (Hi1, Hi1, Hi0)
     );
     port(
         clk             : in     vl_logic;
@@ -24,5 +26,7 @@ entity LZ77_Encoder is
     attribute mti_svvh_generic_type of READ : constant is 1;
     attribute mti_svvh_generic_type of CAL : constant is 1;
     attribute mti_svvh_generic_type of \OUT\ : constant is 1;
+    attribute mti_svvh_generic_type of SHIFT : constant is 1;
+    attribute mti_svvh_generic_type of \OFFSET\ : constant is 1;
     attribute mti_svvh_generic_type of \FINISH\ : constant is 1;
 end LZ77_Encoder;
