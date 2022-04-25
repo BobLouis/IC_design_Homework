@@ -2,9 +2,9 @@
 `define CYCLE      30.0  
 `define End_CYCLE  100000
 
-// `define PAT        "./img0/testdata_decoder.dat"
+`define PAT        "./img0/testdata_decoder.dat"
 // `define PAT        "./img1/testdata_decoder.dat"
-`define PAT        "./img2/testdata_decoder.dat"
+// `define PAT        "./img2/testdata_decoder.dat"
 
 
 module testfixture_decoder();
