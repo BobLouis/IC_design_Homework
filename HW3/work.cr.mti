@@ -1,0 +1,15 @@
+C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/HW3/LZ77_Decoder.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module LZ77_Decoder
+
+Top level modules:
+	LZ77_Decoder
+
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv {1 {vlog -work work -sv C:/Users/bob90/verilog/IC_design_Homework/HW3/tb_Decoder.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module testfixture_decoder
+
+Top level modules:
+	testfixture_decoder
+
+} {} {}}

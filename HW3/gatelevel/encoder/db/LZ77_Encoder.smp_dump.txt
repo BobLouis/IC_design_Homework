@@ -1,0 +1,10 @@
+
+State Machine - |LZ77_Encoder|state
+Name state.FINISH state.OFFSET state.SHIFT state.OUT state.CAL state.READ state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 
+state.READ 0 0 0 0 0 1 1 
+state.CAL 0 0 0 0 1 0 1 
+state.OUT 0 0 0 1 0 0 1 
+state.SHIFT 0 0 1 0 0 0 1 
+state.OFFSET 0 1 0 0 0 0 1 
+state.FINISH 1 0 0 0 0 0 1 
