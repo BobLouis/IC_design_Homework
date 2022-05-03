@@ -171,7 +171,7 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 		end
 	end
 	//data_wr
-	always @(posedge clk ) begin
+	always @(posedge clk or posedge rst) begin
 		if(state == ODD_WR)begin
 			data_wr <= buff[col];
 			wen <= 1;
