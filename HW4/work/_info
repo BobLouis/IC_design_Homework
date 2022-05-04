@@ -4,42 +4,42 @@ K3
 cModel Technology
 Z0 dC:\altera\13.0sp1
 vELA
-!i10b 1
-!s100 mbb3GdKZ0Rcl9gHIWac?Z2
-Iz4_om_;0g7Uj2QQO0PC;i1
-Z1 V0D>@z8OoJdZW8f3ZP[1VO2
-Z2 dC:\Users\bob90\verilog\IC_design_Homework\HW4
-w1651588328
-Z3 8ELA.v
-Z4 FELA.v
+Z1 Iz4_om_;0g7Uj2QQO0PC;i1
+Z2 V0D>@z8OoJdZW8f3ZP[1VO2
+Z3 dC:\Users\bob90\verilog\IC_design_Homework\HW4
+Z4 w1651588328
+Z5 8ELA.v
+Z6 FELA.v
 L0 3
-Z5 OV;L;10.1d;51
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -reportprogress|300|ELA.v|
+o-O0
+Z9 n@e@l@a
+Z10 !s100 mbb3GdKZ0Rcl9gHIWac?Z2
+Z11 !s108 1651588345.499000
+Z12 !s107 ELA.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vTB_ELA
+!i10b 1
+!s100 =dX02>[=f:PPdhkI[2e;o3
+IdnVVBldH7[D9C?CYY13k^2
+Z13 VBBd=Zj[[`IcI7jASjYe8K1
+R3
+w1651658073
+Z14 8testfixture.v
+Z15 Ftestfixture.v
+L0 11
+R7
 r1
 !s85 0
 31
-!s108 1651588345.499000
-!s107 ELA.v|
-Z6 !s90 -reportprogress|300|ELA.v|
+!s108 1651658081.267000
+!s107 testfixture.v|
+Z16 !s90 -reportprogress|300|testfixture.v|
 !s101 -O0
 o-O0
-Z7 n@e@l@a
-vTB_ELA
-Z8 IEn?gAP7@zUXQ45=V=]n_Y3
-Z9 VBBd=Zj[[`IcI7jASjYe8K1
-R2
-Z10 w1651500979
-Z11 8C:/Users/bob90/verilog/IC_design_Homework/HW4/testfixture.v
-Z12 FC:/Users/bob90/verilog/IC_design_Homework/HW4/testfixture.v
-L0 11
-R5
-r1
-31
-Z13 o-work work -O0
-Z14 n@t@b_@e@l@a
-Z15 !s100 O3BlF>T=bGkbY@kV9H1;o1
-Z16 !s108 1651546759.897000
-Z17 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW4/testfixture.v|
-Z18 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/HW4/testfixture.v|
-!i10b 1
-!s85 0
-!s101 -O0
+Z17 n@t@b_@e@l@a
