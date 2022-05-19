@@ -3,11 +3,10 @@ use verilog.vl_types.all;
 entity ELA is
     generic(
         IDLE            : vl_logic_vector(0 to 2) := (Hi0, Hi0, Hi0);
-        ODD_RD          : vl_logic_vector(0 to 2) := (Hi0, Hi0, Hi1);
-        ODD_WR          : vl_logic_vector(0 to 2) := (Hi0, Hi1, Hi0);
-        EVEN_RD         : vl_logic_vector(0 to 2) := (Hi0, Hi1, Hi1);
-        EVEN_WR         : vl_logic_vector(0 to 2) := (Hi1, Hi0, Hi0);
-        \DONE\          : vl_logic_vector(0 to 2) := (Hi1, Hi0, Hi1)
+        ODD_RD_WR       : vl_logic_vector(0 to 2) := (Hi0, Hi0, Hi1);
+        EVEN_RD         : vl_logic_vector(0 to 2) := (Hi0, Hi1, Hi0);
+        EVEN_WR         : vl_logic_vector(0 to 2) := (Hi0, Hi1, Hi1);
+        \DONE\          : vl_logic_vector(0 to 2) := (Hi1, Hi0, Hi0)
     );
     port(
         clk             : in     vl_logic;
@@ -22,8 +21,7 @@ entity ELA is
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of IDLE : constant is 1;
-    attribute mti_svvh_generic_type of ODD_RD : constant is 1;
-    attribute mti_svvh_generic_type of ODD_WR : constant is 1;
+    attribute mti_svvh_generic_type of ODD_RD_WR : constant is 1;
     attribute mti_svvh_generic_type of EVEN_RD : constant is 1;
     attribute mti_svvh_generic_type of EVEN_WR : constant is 1;
     attribute mti_svvh_generic_type of \DONE\ : constant is 1;

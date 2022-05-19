@@ -18,7 +18,8 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 	//--------------------------------------
 	reg [2:0]state, next_state;
 	reg [7:0]buff[0:31];
-	reg [4:0]row, col, cnt;
+	reg [4:0]row, col;
+	reg [1:0]cnt;
 	reg [7:0]tmp1, tmp2;
 	wire [7:0] d1,d2,d3;
 	wire [7:0] a,b,c,d,e,f;
@@ -30,11 +31,10 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 	assign e = buff[3];
 	assign f = buff[5];
 	parameter IDLE =    3'd0;//000
-	parameter ODD_RD =  3'd1;//001 
-	parameter ODD_WR =  3'd2;//010
-	parameter EVEN_RD = 3'd3;//011
-	parameter EVEN_WR = 3'd4;//100
-	parameter DONE =    3'd5;//101
+	parameter ODD_RD_WR=3'd1;//001 
+	parameter EVEN_RD = 3'd2;//011
+	parameter EVEN_WR = 3'd3;//100
+	parameter DONE =    3'd4;//101
 
 	always @(posedge clk or posedge rst) begin
 		if(rst)
@@ -46,23 +46,14 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 	always @(*) begin
 		case(state)
 			IDLE :begin
-				next_state = ODD_RD;
+				next_state = ODD_RD_WR;
 			end
-			ODD_RD :begin
-				if(cnt == 31)
-					next_state = ODD_WR;
-				else
-					next_state = ODD_RD;
-			end
-			ODD_WR :begin
-				if(col == 31)begin
-					if(row == 30)
-						next_state = EVEN_RD;
-					else
-						next_state = ODD_RD;
+			ODD_RD_WR :begin
+				if(&col && row == 30)begin
+					next_state = EVEN_RD;
 				end
 				else begin
-					next_state = ODD_WR;
+					next_state = ODD_RD_WR;
 				end
 			end
 			EVEN_RD :begin
@@ -86,19 +77,16 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 	end
 
 	//req
-	assign req = (state == ODD_RD && cnt == 0)?1:0;
+	assign req = (state == ODD_RD_WR && cnt == 0)?1:0;
 
 	//buff
 	always @(posedge clk) begin
-		if(state == ODD_RD)begin
-			buff[cnt] <= in_data;
-		end
-		else if(next_state == EVEN_RD || next_state == EVEN_WR)begin
+		if(next_state == EVEN_RD || next_state == EVEN_WR)begin
 			if(!col) begin
 				buff[cnt - 1] <= data_rd;
 			end
 			else if (~col) begin
-				buff[ cnt+3 ] <= data_rd;
+				buff[cnt + 3] <= data_rd;
 				if(col != 1 && !cnt)begin
 					buff[0] <= buff[1];
 					buff[1] <= buff[4];
@@ -113,9 +101,9 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 		if(rst)begin
 			cnt <= 0;
 		end
-		else if(state == ODD_RD)begin
-			cnt <= cnt + 1;
-		end
+		// else if(state == ODD_RD)begin
+		// 	cnt <= cnt + 1;
+		// end
 		else if(state == EVEN_RD)begin
 			cnt <= cnt + 1;
 		end
@@ -129,15 +117,15 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 		if(rst)begin
 			addr <= 0;
 		end
-		else if(state == ODD_WR)begin
+		else if(state == ODD_RD_WR)begin
 			addr <= {row,col};
 		end
 		else if(state == EVEN_RD)begin
 			if(col == 0)begin
 				if(cnt == 0 || cnt == 1)
-					addr <= {row,cnt};
+					addr <= {row,3'd0,cnt};
 				else
-					addr <= {row +5'd2,cnt -5'd2};//2 3
+					addr <= {row +5'd2,3'd0,cnt - 2'd2};//2 3
 			end
 			else begin
 				if(cnt == 0)
@@ -172,8 +160,8 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 	end
 	//data_wr
 	always @(posedge clk) begin
-		if(state == ODD_WR)begin
-			data_wr <= buff[col];
+		if(state == ODD_RD_WR)begin
+			data_wr <= in_data;
 			wen <= 1;
 		end
 		else if(state == EVEN_WR)begin
@@ -189,8 +177,8 @@ module ELA(clk, rst, in_data, data_rd, req, wen, addr, data_wr, done);
 			row <= 0;
 			col <= 0;
 		end
-		else if(state == ODD_RD || state == ODD_WR)begin  //state == ODD_RD || state == ODD_WR
-			if(col == 31 && state == ODD_WR)
+		else if(state == ODD_RD_WR)begin 
+			if(col == 31 && state == ODD_RD_WR)
 				row <= row + 2;
 			col <= col +1;
 		end
