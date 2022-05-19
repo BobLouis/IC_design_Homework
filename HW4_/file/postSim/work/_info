@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\bob90\verilog\IC_design_Homework\HW4_\file
+vELA
+Z1 IIW1Zg4UnIRJd9BSn>J]g_1
+Z2 ViFUY7@j5[n:>8J5RJ:Z0a0
+Z3 dC:\Users\bob90\verilog\IC_design_Homework\HW4_\file\postSim
+Z4 w1652974233
+Z5 8C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/postSim/ELA.vo
+Z6 FC:/Users/bob90/verilog/IC_design_Homework/HW4_/file/postSim/ELA.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+Z9 n@e@l@a
+Z10 !s100 AcL<j2;0L4k<H^Z_6MAKl2
+Z11 !s108 1652975539.711000
+Z12 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/postSim/ELA.vo|
+Z13 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/postSim/ELA.vo|
+!i10b 1
+!s85 0
+!s101 -O0
+vTB_ELA
+!i10b 1
+!s100 SK[KdoZz1hQb2zJJNRfzz2
+In:fk2LTa<24<SPAjfJ;N^2
+Z14 VBBd=Zj[[`IcI7jASjYe8K1
+R3
+w1652976798
+Z15 8testfixture.v
+Z16 Ftestfixture.v
+L0 11
+R7
+r1
+!s85 0
+31
+!s108 1652976802.841000
+!s107 testfixture.v|
+Z17 !s90 -reportprogress|300|testfixture.v|
+!s101 -O0
+o-O0
+Z18 n@t@b_@e@l@a
