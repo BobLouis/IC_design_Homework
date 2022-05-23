@@ -1,4 +1,11 @@
-C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v
+C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/ELA.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/ELA.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ELA
+
+Top level modules:
+	ELA
+
+} {} {}} C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module TB_ELA
 

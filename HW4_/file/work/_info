@@ -4,42 +4,42 @@ K3
 cModel Technology
 Z0 dC:\Users\bob90\Downloads\E14086020\E14086020\src
 vELA
-!i10b 1
-!s100 DN3`77^V3Z=lio<RX99]22
-IKF<Pl60hIFG;m4H1MJ`iB3
-Z1 V>R2PZPX1RmOBaakl2hlfa2
-Z2 dC:\Users\bob90\verilog\IC_design_Homework\HW4_\file
-w1652979801
-Z3 8ELA.v
-Z4 FELA.v
+Z1 I_Gii=:Q35VgjR_VM15V<I0
+Z2 V>R2PZPX1RmOBaakl2hlfa2
+Z3 dC:\Users\bob90\verilog\IC_design_Homework\HW4_\file
+Z4 w1652979801
+Z5 8C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/ELA.v
+Z6 FC:/Users/bob90/verilog/IC_design_Homework/HW4_/file/ELA.v
 L0 3
-Z5 OV;L;10.1d;51
-r1
-!s85 0
-31
-!s108 1652979808.537000
-!s107 ELA.v|
-Z6 !s90 -reportprogress|300|ELA.v|
-!s101 -O0
-o-O0
-Z7 n@e@l@a
-vTB_ELA
-Z8 !s100 =38S8CQz2O1TSjN@bad3R0
-Z9 Ik4z]iMn=E6JBCo7R:>0Y@2
-Z10 VBBd=Zj[[`IcI7jASjYe8K1
-R2
-Z11 w1652976188
-Z12 8C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v
-Z13 FC:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v
-L0 11
-R5
+Z7 OV;L;10.1d;51
 r1
 31
-Z14 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v|
-Z15 o-work work -O0
-Z16 n@t@b_@e@l@a
-Z17 !s108 1652978374.909000
-Z18 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v|
+Z8 o-work work -O0
+Z9 n@e@l@a
 !i10b 1
+Z10 !s100 j^?Wa@BEac7;FE=_^c<1N2
 !s85 0
+Z11 !s108 1653190533.949000
+Z12 !s107 C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/ELA.v|
+Z13 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/ELA.v|
 !s101 -O0
+vTB_ELA
+!i10b 1
+Z14 !s100 =38S8CQz2O1TSjN@bad3R0
+Z15 Ik4z]iMn=E6JBCo7R:>0Y@2
+Z16 VBBd=Zj[[`IcI7jASjYe8K1
+R3
+Z17 w1652976188
+Z18 8C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v
+Z19 FC:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v
+L0 11
+R7
+r1
+!s85 0
+31
+!s108 1653190534.029000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v|
+Z20 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/HW4_/file/testfixture.v|
+!s101 -O0
+R8
+Z21 n@t@b_@e@l@a

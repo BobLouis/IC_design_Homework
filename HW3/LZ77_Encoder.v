@@ -67,8 +67,7 @@ always@(*)begin
             OUT:begin
                 if(char_nxt == 8'h24) next_state = FINISH;
                 else next_state = SHIFT;
-            end
-                
+            end   
             SHIFT:begin
                 if(shift_cnt == match_len) next_state = OFFSET;
                 else next_state = SHIFT;

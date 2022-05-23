@@ -1,5 +1,5 @@
 `timescale 1ns/10ps
-`define	CYCLE      19.5				// Modify your clock period here
+`define	CYCLE      19.4			// Modify your clock period here
 `define	End_CYCLE  10000000			// Modify cycle times once your design need more cycle times!
 `define	tb
 
