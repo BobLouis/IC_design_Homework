@@ -1,0 +1,47 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1
+vLZ77_Encoder
+!i10b 1
+!s100 9Xn0^QSdkaB;chk]IWm110
+IEI0]oU4z1GF2FOl66VbF12
+Z1 VB3`en3M0:iYLH7KhS62fQ2
+Z2 dC:\Users\bob90\verilog\IC_design_Homework\FINAL\Q3
+w1653364080
+Z3 8Q3_Encoder.v
+Z4 FQ3_Encoder.v
+L0 1
+Z5 OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1653364085.054000
+!s107 Q3_Encoder.v|
+Z6 !s90 -reportprogress|300|Q3_Encoder.v|
+!s101 -O0
+o-O0
+Z7 n@l@z77_@encoder
+vtestfixture_encoder
+Z8 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z9 IY;KkNb3AFKj]H3F7F<D?B1
+Z10 V=dz;:zCVO?^^hLmNTz5VD1
+S1
+R2
+Z11 w1652206340
+Z12 8C:/Users/bob90/verilog/IC_design_Homework/FINAL/Q3/tb_Encoder_Q3.sv
+Z13 FC:/Users/bob90/verilog/IC_design_Homework/FINAL/Q3/tb_Encoder_Q3.sv
+L0 11
+R5
+r1
+31
+Z14 o-work work -sv -O0
+Z15 !s100 IT;Pe4zcgfcd>f0z2zZY:1
+Z16 !s105 tb_Encoder_Q3_sv_unit
+Z17 !s108 1653361503.182000
+Z18 !s107 C:/Users/bob90/verilog/IC_design_Homework/FINAL/Q3/tb_Encoder_Q3.sv|
+Z19 !s90 -reportprogress|300|-work|work|-sv|C:/Users/bob90/verilog/IC_design_Homework/FINAL/Q3/tb_Encoder_Q3.sv|
+!i10b 1
+!s85 0
+!s101 -O0

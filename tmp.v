@@ -11,7 +11,7 @@ output reg 	[2:0] 	match_len;
 output reg 	[7:0] 	char_nxt;
 
 
-reg			[2:0]	current_state, next_state;
+reg			[1:0]	current_state, next_state;
 reg			[11:0]	counter;
 reg			[3:0]	search_index;
 reg			[2:0]	lookahead_index;
@@ -23,7 +23,7 @@ wire		[11:0]	current_encode_len;
 wire		[2:0]	curr_lookahead_index;
 wire		[3:0]	match_char [6:0];
 
-parameter [2:0] IN=3'b000, ENCODE_NOT_MATCH=3'b001, ENCODE_MATCH=3'b010, ENCODE_OUT=3'b011, SHIFT_ENCODE=3'b100;
+parameter [1:0] IN=2'b00, ENCODE=2'b01, ENCODE_OUT=2'b10, SHIFT_ENCODE=2'b11;
 
 integer i;
 
@@ -46,6 +46,7 @@ assign	equal[4] = (search_index <= 8) ? ((match_char[4]==str_buffer[4]) ? equal[
 assign	equal[5] = (search_index <= 8) ? ((match_char[5]==str_buffer[5]) ? equal[4] : 1'b0) : 1'b0;
 assign	equal[6] = (search_index <= 8) ? ((match_char[6]==str_buffer[6]) ? equal[5] : 1'b0) : 1'b0;
 assign	equal[7] = 1'b0;
+
 
 assign	current_encode_len = counter+match_len+1;
 assign	curr_lookahead_index = lookahead_index+1;
@@ -85,34 +86,21 @@ begin
 				str_buffer[counter] <= chardata[3:0];
 				counter <= (counter==2047) ? 0 : counter+1;
 			end
-            
-			ENCODE_NOT_MATCH:
+			ENCODE:
 			begin
 				if(equal[match_len]==1 && search_index < counter && current_encode_len <= 2048)
 				begin
-                    case(current_state+1)
-                        ENCODE_MATCH:begin
-                            char_nxt <= str_buffer[curr_lookahead_index];
-                            match_len <= match_len+1;
-                            offset <= search_index;
-                            lookahead_index <= curr_lookahead_index;
-                        end
-                    endcase
+					char_nxt <= str_buffer[curr_lookahead_index];
+					match_len <= match_len+1;
+					offset <= search_index;
+
+					lookahead_index <= curr_lookahead_index;
 				end
 				else
 				begin
 					search_index <= (search_index==15) ? 0 : search_index-1;
 				end
-
-
 			end
-            ENCODE_MATCH:begin
-                char_nxt <= str_buffer[curr_lookahead_index];
-                match_len <= match_len+1;
-                offset <= search_index;
-
-                lookahead_index <= curr_lookahead_index;
-            end
 			ENCODE_OUT:
 			begin
 				valid <= 1;
@@ -155,16 +143,11 @@ begin
 	case(current_state)
 		IN:
 		begin
-			next_state = (counter==2047) ? ENCODE_NOT_MATCH : IN;
+			next_state = (counter==2047) ? ENCODE : IN;
 		end
-		ENCODE_NOT_MATCH:
+		ENCODE:
 		begin
-			next_state = (search_index==15 || match_len==7) ? ENCODE_OUT : ENCODE_NOT_MATCH;
-		
-        end
-        ENCODE_MATCH:
-		begin
-			next_state = (search_index==15 || match_len==7) ? ENCODE_OUT : ENCODE_NOT_MATCH;/* fill in here */
+			next_state = (search_index==15 || match_len==7) ? ENCODE_OUT : ENCODE;
 		end
 		ENCODE_OUT:
 		begin
@@ -172,7 +155,7 @@ begin
 		end
 		SHIFT_ENCODE:
 		begin
-			next_state = (lookahead_index==0) ? ENCODE_NOT_MATCH : SHIFT_ENCODE;
+			next_state = (lookahead_index==0) ? ENCODE : SHIFT_ENCODE;
 		end
 		default:
 		begin

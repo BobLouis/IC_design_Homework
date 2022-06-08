@@ -1,0 +1,8 @@
+C:/Users/bob90/verilog/IC_design_Homework/FINAL/Q3/tb_Encoder_Q3.sv {1 {vlog -work work -sv C:/Users/bob90/verilog/IC_design_Homework/FINAL/Q3/tb_Encoder_Q3.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module testfixture_encoder
+
+Top level modules:
+	testfixture_encoder
+
+} {} {}}

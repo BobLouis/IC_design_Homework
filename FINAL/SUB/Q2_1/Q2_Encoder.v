@@ -1,18 +1,17 @@
-module LZ77(clk,reset,chardata,valid,encode,busy,offset,match_len,char_nxt);
+module LZ77_Encoder(clk,reset,chardata,valid,encode,finish,offset,match_len,char_nxt);
 
 input 				clk;
 input 				reset;
-output  			valid;
-output  			encode;
-output  			busy;
-output  	[7:0] 	char_nxt;
-
-inout		[3:0] 	offset;
-inout		[2:0] 	match_len;
-inout 		[7:0] 	chardata;
-
+input 		[7:0] 	chardata;
+output  	reg		valid;
+output  	reg		encode;
+output  	reg		finish;
+output  	reg[3:0] 	offset;
+output  	reg[2:0] 	match_len;
+output  	reg[7:0] 	char_nxt;
 
 /* write your code here ! */
+
 reg [2:0]state, next_state;
 parameter IDLE = 3'b000;
 parameter READ = 3'b001;
@@ -242,12 +241,4 @@ always@(*)begin
         finish = 1'b0;
 end
 
-
-//busy state
-always@(*)begin
-    if(next_state == FINISH )
-        finish = 1'b1;
-    else
-        finish = 1'b0;
-end
 endmodule
