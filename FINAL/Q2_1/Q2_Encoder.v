@@ -12,6 +12,7 @@ output  	reg[7:0] 	char_nxt;
 
 /* write your code here ! */
 
+//search 10 look 6
 reg [2:0]state, next_state;
 parameter IDLE = 3'b000;
 parameter READ = 3'b001;
@@ -21,7 +22,7 @@ parameter SHIFT = 3'b100;
 parameter OFFSET = 3'b101;
 parameter FINISH = 3'b110;
 
-reg [7:0]str[0:2058]; 
+reg [7:0]str[0:8223]; 
 
 reg [11:0]cnt;
 reg [4:0]look_ptr;

@@ -23,9 +23,9 @@ parameter SHIFT = 3'b100;
 parameter OFFSET = 3'b101;
 parameter FINISH = 3'b110;
 
-reg [7:0]str[0:2078]; 
+reg [7:0]str[0:8222]; 
 
-reg [11:0]cnt;
+reg [13:0]cnt;
 reg [5:0] look_ptr;
 reg [5:0] search_ptr;
 
@@ -44,7 +44,7 @@ assign look_buf = str[look_ptr];
 
 always @(posedge clk or posedge reset) begin
     if(reset)
-        cyc <=0;
+        cyc <=4;
     else
         cyc <= cyc + 1;
 end
@@ -64,7 +64,7 @@ always@(*)begin
             IDLE:
                 next_state = READ;
             READ:begin
-                if(cnt == 13'd2079) next_state = CAL;
+                if(cnt == 14'd8223) next_state = CAL;
                 else next_state = READ;   
             end
             CAL:begin
@@ -206,7 +206,7 @@ always@(posedge clk or posedge reset)begin
         str[cnt] <= chardata;
     end
     else if(next_state == SHIFT)begin
-        for(i = 0; i <2079; i= i+1)begin
+        for(i = 0; i <8222; i= i+1)begin
             str[i] <= str[i + 1];
         end
     end

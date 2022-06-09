@@ -14,7 +14,7 @@ output 	reg [7:0] 	char_nxt;
 	Write Your Design Here ~
 */
 
-
+//search 9 chars    look 8
 reg [2:0]state, next_state;
 parameter IDLE = 3'b000;
 parameter READ = 3'b001;

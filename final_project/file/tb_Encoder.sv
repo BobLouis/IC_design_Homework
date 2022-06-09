@@ -154,7 +154,7 @@ begin
                             $display("cycle %5h, expect(%h,%h,%h) , get(%h,%h,%h) >> Fail",cycle,gold_offset,gold_match_len,gold_char_nxt[3:0],get_offset,get_match_len,get_char_nxt[3:0]); 
                         end
 
-                        // $stop;
+                        $stop;
 
                     end
                 end
