@@ -2,9 +2,9 @@
 `define	CYCLE      5.0				// Modify your clock period here
 `define	End_CYCLE  10000000			// Modify cycle times once your design need more cycle times!
 
-`define	PAT		       "./img0/testdata_decoder.dat"
-`define DECODE_OUT     "./img0/decode_result.raw"
-`define INTERP_OUT     "./img0/interp_result.raw"
+`define	PAT		       "./img2/testdata_decoder.dat"
+`define DECODE_OUT     "./img2/decode_result.raw"
+`define INTERP_OUT     "./img2/interp_result.raw"
 
 module testfixture_decoder;
 
