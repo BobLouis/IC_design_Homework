@@ -18,17 +18,17 @@ r1
 Z9 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/ELA.v|
 Z10 o-work work -O0
 Z11 n@e@l@a
-Z12 !s108 1654738654.795000
+Z12 !s108 1654743121.816000
 Z13 !s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/ELA.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vLZ77_Decoder
-Z14 !s100 >iK<SO<P8eNb48c?`0[>E2
-Z15 IaJaIFJLA@c`n]GN9a7fJ>2
+Z14 !s100 PFbBN8=jHZImAQD_CD4j>0
+Z15 I<WFcd4^63Z5z1U:Qc6HM90
 Z16 V@J<>D^E_Nj6ok9TI;FR@K0
 R4
-Z17 w1653991930
+Z17 w1654743005
 Z18 8C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Decoder.v
 Z19 FC:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Decoder.v
 L0 1
@@ -38,72 +38,72 @@ r1
 Z20 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Decoder.v|
 R10
 Z21 n@l@z77_@decoder
-Z22 !s108 1654738654.861000
+Z22 !s108 1654743121.869000
 Z23 !s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Decoder.v|
 !i10b 1
 !s85 0
 !s101 -O0
 vLZ77_Encoder
-!i10b 1
-!s100 1IT0LZoz8klAFQLLi;Hgl1
-IkP8`ljz9c_dP3_AFPl8:90
-Z24 VXbSMn2[UCKV3;k2SJ;2n[1
+Z24 !s100 Rld8oYCCL1I8fAi6_n@E:1
+Z25 IEXN2=[I5NI]gQ<GWCM=KX0
+Z26 VXbSMn2[UCKV3;k2SJ;2n[1
 R4
-w1654742310
-Z25 8LZ77_Encoder.v
-Z26 FLZ77_Encoder.v
+Z27 w1654742310
+Z28 8C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Encoder.v
+Z29 FC:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Encoder.v
 L0 1
 R8
 r1
-!s85 0
 31
-!s108 1654742322.603000
-!s107 LZ77_Encoder.v|
-Z27 !s90 -reportprogress|300|LZ77_Encoder.v|
+Z30 !s90 -reportprogress|300|-work|work|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Encoder.v|
+R10
+Z31 n@l@z77_@encoder
+Z32 !s108 1654743121.920000
+Z33 !s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Encoder.v|
+!i10b 1
+!s85 0
 !s101 -O0
-o-O0
-Z28 n@l@z77_@encoder
 vtestfixture_decoder
-Z29 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
-Z30 !s100 i6I<z92@QKTZaXKI[<OXd1
-Z31 I:iDgVjULI4U^cgGI;MY673
-Z32 VNXBI4ki5l97R@nV:mVB461
-Z33 !s105 tb_Decoder_sv_unit
+Z34 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+Z35 !s100 i6I<z92@QKTZaXKI[<OXd1
+Z36 I:iDgVjULI4U^cgGI;MY673
+Z37 VNXBI4ki5l97R@nV:mVB461
+Z38 !s105 tb_Decoder_sv_unit
 S1
 R4
-Z34 w1653991953
-Z35 8C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv
-Z36 FC:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv
+Z39 w1653991953
+Z40 8C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv
+Z41 FC:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv
 L0 9
 R8
 r1
 31
-Z37 !s90 -reportprogress|300|-work|work|-sv|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv|
-Z38 o-work work -sv -O0
-Z39 !s108 1654738654.973000
-Z40 !s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv|
+Z42 !s90 -reportprogress|300|-work|work|-sv|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv|
+Z43 o-work work -sv -O0
 !i10b 1
 !s85 0
+Z44 !s108 1654743121.973000
+Z45 !s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Decoder.sv|
 !s101 -O0
 vtestfixture_encoder
-R29
-Z41 ILDYcTO_nZe5K:7:oUReNI2
-Z42 V=dz;:zCVO?^^hLmNTz5VD1
-Z43 !s105 tb_Encoder_sv_unit
+R34
+!i10b 1
+Z46 !s100 N64:03L8fHA0@hM?Y7d:@3
+Z47 IbGHAAkJ4gH>V4Le[_8bca3
+Z48 V=dz;:zCVO?^^hLmNTz5VD1
+Z49 !s105 tb_Encoder_sv_unit
 S1
 R4
-Z44 w1654704050
-Z45 8C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv
-Z46 FC:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv
+Z50 w1654741189
+Z51 8C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv
+Z52 FC:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv
 L0 12
 R8
 r1
-31
-R38
-Z47 !s100 bzK>k]9NVCLZR6a[fQ2BO1
-Z48 !s108 1654738655.036000
-Z49 !s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv|
-Z50 !s90 -reportprogress|300|-work|work|-sv|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv|
-!i10b 1
 !s85 0
+31
+!s108 1654743122.030000
+!s107 C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv|
+Z53 !s90 -reportprogress|300|-work|work|-sv|C:/Users/bob90/verilog/IC_design_Homework/final_project/file/tb_Encoder.sv|
 !s101 -O0
+R43

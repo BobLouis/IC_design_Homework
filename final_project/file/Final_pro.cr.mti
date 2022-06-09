@@ -1,11 +1,4 @@
-C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Decoder.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Decoder.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module LZ77_Decoder
-
-Top level modules:
-	LZ77_Decoder
-
-} {} {}} C:/Users/bob90/verilog/IC_design_Homework/final_project/file/ELA.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/final_project/file/ELA.v
+C:/Users/bob90/verilog/IC_design_Homework/final_project/file/ELA.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/final_project/file/ELA.v
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module ELA
 
@@ -18,12 +11,5 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 
 Top level modules:
 	testfixture_decoder
-
-} {} {}} C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Encoder.v {1 {vlog -work work C:/Users/bob90/verilog/IC_design_Homework/final_project/file/LZ77_Encoder.v
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module LZ77_Encoder
-
-Top level modules:
-	LZ77_Encoder
 
 } {} {}}
